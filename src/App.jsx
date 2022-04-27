@@ -1,40 +1,23 @@
-// import styles from "./App.module.css";
+import { Routes, Route, Link } from "react-router-dom";
+import { BookList } from "./pages/BookList";
+import { BookPage } from "./pages/BookPage";
+import { CharacterPage } from "./pages/CharacterPage";
 
-import { useState, useEffect } from "react";
-
-
-function App() {
-
-  const [books, setBooks] = useState();
-
-  useEffect(() => {
-    fetchBooks();
-  }, [])
-  
-  const fetchBooks = () => {
-    setBooks(null);
-    
-    fetch('https://anapioficeandfire.com/api/books')
-      .then(response => response.json())
-      .then(data => {
-          setTimeout(() => {
-            setBooks(data);
-          }, 1000);
-      })
-  }
-
-
-
+export function App() {
   return (
-    <div className="container">
-      <button onClick={fetchBooks}>Reload</button>
-      {!books
-        ? <div>Loading...</div>
-        : books.map((book, i) => {
-          return <h1 key={i} >{ book.name }</h1>
-        })}
-    </div>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <Link to="/">Home</Link>
+        </div>
+      </nav>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<BookList />} />
+          <Route path="book/:bookId" element={<BookPage />} />
+          <Route path="character/:charId" element={<CharacterPage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
-
-export default App;
