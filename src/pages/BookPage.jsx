@@ -11,9 +11,17 @@ export function BookPage() {
     
     return (
       <>
-        <BookImage book={book} />
-        <h3>{ book.name }</h3>
-        <CharacterList book={book}/>
+        <div className="col">
+          <BookImage book={book} />
+          <h3>{ book.name }</h3>
+          <h3>Author: { book.authors }</h3>
+          <h3>Pages: { book.numberOfPages }</h3>
+          <h3>Released: { book.released }</h3>
+        </div>
+        <div>
+          <h2>Characters</h2>
+          <CharacterList book={book}/>
+        </div>
       </>
     )
 }

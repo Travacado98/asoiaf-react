@@ -14,7 +14,7 @@ export function BookList() {
   const fetchBooks = () => {
     setBooks(null);
     
-    fetch('https://anapioficeandfire.com/api/books')
+    fetch('https://anapioficeandfire.com/api/books?pageSize=50')
       .then(response => response.json())
       .then(data => {
         setBooks(data);
@@ -25,35 +25,37 @@ export function BookList() {
 
   return (
     <>
-      <h2>Main Series</h2>
-      <div className="row">
-        {books
-          .filter((book) => BOOK_IMAGES[book.name])
-          .map((book) => {
-            return (
-              <div className="col-4" key={book.isbn}> 
-                <div className="card">
-                  <BookLink book={book}/>
+      <div className="container text-center">
+        <h2>Main Series</h2>
+        <div className="row">
+          {books
+            .filter((book) => BOOK_IMAGES[book.name])
+            .map((book) => {
+              return (
+                <div className="col-4" key={book.isbn}> 
+                  <div className="card mb-4">
+                    <BookLink book={book}/>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
-      </div>
-      <br/>
-      <br/>
-      <h2>Misc.</h2>
-      <div className="row">
-        {books
-          .filter((book) => !BOOK_IMAGES[book.name])
-          .map((book) => {
-            return (
-              <div className="col-4" key={book.isbn}> 
-                <div className="card">
-                  <BookLink book={book}/>
+              )
+            })}
+        </div>
+        <br/>
+        <br/>
+        <h2>Misc.</h2>
+        <div className="row">
+          {books
+            .filter((book) => !BOOK_IMAGES[book.name])
+            .map((book) => {
+              return (
+                <div className="col-4" key={book.isbn}> 
+                  <div className="card mb-4">
+                    <BookLink book={book}/>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+        </div>
       </div>
     </>
   );
