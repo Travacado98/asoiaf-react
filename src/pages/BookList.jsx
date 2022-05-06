@@ -18,6 +18,7 @@ export default function BookList() {
   };
 
   useEffect(() => {
+    document.title = 'ASOIAF | Books';
     fetchBooks();
   }, []);
 

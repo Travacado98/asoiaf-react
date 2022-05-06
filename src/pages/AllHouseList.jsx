@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import HouseName from '../components/HouseName';
 
 export default function AllHouseList() {
+  useEffect(() => {
+    document.title = 'ASOIAF | Houses';
+  }, []);
+
   const [houses, setHouses] = useState();
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState();

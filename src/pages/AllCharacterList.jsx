@@ -26,6 +26,7 @@ export default function AllCharacterList() {
 
   useEffect(() => {
     fetchCharacters();
+    document.title = 'ASOIAF | Characters';
   }, []);
 
   if (!characters) return null;
