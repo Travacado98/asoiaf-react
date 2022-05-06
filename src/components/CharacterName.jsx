@@ -7,6 +7,6 @@ export default function CharacterName({ charId }) {
   if (!character) return null;
 
   return (
-    <h1>{ character.name }</h1>
+    <h1>{character.name}</h1>
   );
 }
