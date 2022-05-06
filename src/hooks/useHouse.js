@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-export function useHouse(houseId) {
+export default function useHouse(houseId) {
   const [house, setHouse] = useState();
-
-  useEffect(() => {
-    fetchHouse();
-  }, [houseId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchHouse = () => {
     setHouse(null);
@@ -16,6 +12,10 @@ export function useHouse(houseId) {
         setHouse(data);
       });
   };
+
+  useEffect(() => {
+    fetchHouse();
+  }, [houseId]);
 
   return { house };
 }

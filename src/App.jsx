@@ -1,11 +1,12 @@
-import { Routes, Route, NavLink } from "react-router-dom";
-import { AllCharacterList } from "./pages/AllCharacterList";
-import { BookList } from "./pages/BookList";
-import { BookPage } from "./pages/BookPage";
-import { CharacterPage } from "./pages/CharacterPage";
-import { AllHouseList } from "./pages/AllHouseList";
+import React from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import AllCharacterList from './pages/AllCharacterList';
+import BookList from './pages/BookList';
+import BookPage from './pages/BookPage';
+import CharacterPage from './pages/CharacterPage';
+import AllHouseList from './pages/AllHouseList';
 
-export function App() {
+export default function App() {
   return (
     <>
       <nav className="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">

@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-export function useBook(bookId) {
+export default function useBook(bookId) {
   const [book, setBook] = useState();
-
-  useEffect(() => {
-    fetchBook();
-  }, [bookId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchBook = () => {
     setBook(null);
@@ -16,6 +12,10 @@ export function useBook(bookId) {
         setBook(data);
       });
   };
+
+  useEffect(() => {
+    fetchBook();
+  }, [bookId]);
 
   return { book };
 }

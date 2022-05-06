@@ -1,14 +1,12 @@
-import { useBook } from "../hooks/useBook"
+import React from 'react';
+import useBook from '../hooks/useBook';
 
-export function BookName({ bookId }) {
+export default function BookName({ bookId }) {
+  const { book } = useBook(bookId);
 
-    const {book} = useBook(bookId);
+  if (!book) return null;
 
-    if (!book) return null
-
-    return (
-        <h1>{ book.name }</h1>
-    )
-  }
-  
-  
+  return (
+    <h1>{ book.name }</h1>
+  );
+}

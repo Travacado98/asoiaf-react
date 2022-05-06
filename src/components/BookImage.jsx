@@ -1,8 +1,8 @@
-import { BOOK_IMAGES } from "../constants";
+import React from 'react';
+import { BOOK_IMAGES } from '../constants';
 
-export function BookImage({ book }) {
+export default function BookImage({ book }) {
   return (
-      <img height={300} alt="" src={BOOK_IMAGES[book.name]} />
-  )
+    <img height={300} alt="" src={BOOK_IMAGES[book.name]} />
+  );
 }
-

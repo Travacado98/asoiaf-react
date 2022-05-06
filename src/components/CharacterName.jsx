@@ -1,14 +1,12 @@
-import { useCharacter } from "../hooks/useCharacter"
+import React from 'react';
+import useCharacter from '../hooks/useCharacter';
 
-export function CharacterName({ charId }) {
+export default function CharacterName({ charId }) {
+  const { character } = useCharacter(charId);
 
-    const {character} = useCharacter(charId);
+  if (!character) return null;
 
-    if (!character) return null
-
-    return (
-        <h1>{ character.name }</h1>
-    )
-  }
-  
-  
+  return (
+    <h1>{ character.name }</h1>
+  );
+}

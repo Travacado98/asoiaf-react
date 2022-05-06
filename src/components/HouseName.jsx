@@ -1,14 +1,12 @@
-import { useHouse } from "../hooks/useHouse";
+import React from 'react';
+import useHouse from '../hooks/useHouse';
 
-export function HouseName({ houseId }) {
+export default function HouseName({ houseId }) {
+  const { house } = useHouse(houseId);
 
-    const {house} = useHouse(houseId);
+  if (!house) return null;
 
-    if (!house) return null
-
-    return (
-        <h1>{ house.name }</h1>
-    )
-  }
-  
-  
+  return (
+    <h1>{ house.name }</h1>
+  );
+}

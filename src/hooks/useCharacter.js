@@ -1,11 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-export function useCharacter(charId) {
+export default function useCharacter(charId) {
   const [character, setCharacter] = useState();
-
-  useEffect(() => {
-    fetchCharacter();
-  }, [charId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchCharacter = () => {
     setCharacter(null);
@@ -16,6 +12,10 @@ export function useCharacter(charId) {
         setCharacter(data);
       });
   };
+
+  useEffect(() => {
+    fetchCharacter();
+  }, [charId]);
 
   return { character };
 }
