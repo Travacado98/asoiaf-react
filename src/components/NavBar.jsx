@@ -15,7 +15,7 @@ export default function NavBar() {
   ));
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <img src="../images/site-header.jpeg" alt="" height="50" />
