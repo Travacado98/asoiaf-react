@@ -6,4 +6,4 @@ export const BOOK_IMAGES = {
   'A Dance with Dragons': '/images/adwd.jpeg',
 };
 
-export default BOOK_IMAGES;
+export const TEST = 'test';

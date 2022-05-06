@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import BookImage from '../components/BookImage';
 import CharacterList from '../components/CharacterList';
@@ -7,6 +7,14 @@ import useBook from '../hooks/useBook';
 export default function BookPage() {
   const { bookId } = useParams();
   const { book } = useBook(bookId);
+
+  useEffect(() => {
+    if (!book) {
+      document.title = 'ASOIAF | Loading...';
+    } else {
+      document.title = `ASOIAF | ${book.name}`;
+    }
+  }, [book]);
 
   if (!book) return null;
 

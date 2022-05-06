@@ -20,5 +20,6 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };
